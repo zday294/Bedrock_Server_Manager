@@ -13,3 +13,5 @@ apt install python-pip -y
 apt-get install pylint
 
 apt install unzip
+
+chmod +x bedrock

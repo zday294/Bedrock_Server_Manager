@@ -46,7 +46,7 @@ Go to [the official download page on the Minecraft werbsite,](https://www.minecr
 
 ![Server download image](images/server_download.png)
 
-    Note: The folder names and locations in the next few steps are crucial to ensuring the code will work across the repository. Pay careful attention.
+Note: The folder names and locations in the next few steps are crucial to ensuring the code will work across the repository. Pay careful attention.
 
 Move the zip file from where you downloaded it to the git respository. Assuming you dowloaded it to a place in the C drive, the easiest way to do this is to navigate the git repository in Ubuntu 18.04 and then copy it to there with the following command.
 
