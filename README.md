@@ -4,7 +4,6 @@ This project is inteded to design a program that will allow multiple Minecraft B
 
 Built and tested on WSL: Ubuntu 18.04
 
-
 ## To begin working:
 
 ### Install the Windows Subsystem for Linux
@@ -29,10 +28,10 @@ Note: Ubuntu will start you in a directory called "/home/[username]". You can ac
 
 If you don't have git, run the following commands in Ubuntu 18.04
 
-
     sudo apt install git
 
     git clone https://github.com/zday294/Bedrock_Server_Manager.git 
-    
 
-You should now have the repository available in Ubuntu 18.04. If you're unfamiliar with git and github, read gitting_started.md
+You should now have the repository available in Ubuntu 18.04. If you're unfamiliar with git and github, read [the Git Getting Started Guide](./gitting_started.md)
+
+You will also need to create a GitHub account if you do not already have one.
