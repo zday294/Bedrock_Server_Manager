@@ -12,9 +12,6 @@ If you're using linux, installing git is as simple as running the following comm
 
     sudo apt-get git
 
-
-
-
 ## Cloning the repository
 
 Working with git begins with creating or cloning a repository. Most of the time you'll be cloning a repository so we'll go over that.
@@ -53,7 +50,7 @@ Once the changes have been added, send them to the server with the commit comman
 
 ### Pull
 
-The pull command pulls the latest commit from the remote branch. If you have uncommitted changes, git will tell you to stash or commit your changes. 
+The pull command pulls the latest commit from the remote branch. If you have uncommitted changes, git will tell you to stash or commit your changes. Most of the time you will want to use this command before you begin working to ensure you have the latest code to work with. 
 
     git pull
 
