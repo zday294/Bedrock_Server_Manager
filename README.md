@@ -4,24 +4,25 @@ This project is inteded to design a program that will allow multiple Minecraft B
 
 Built and tested on WSL: Ubuntu 18.04
 
-## To begin working:
+## To begin working
 
 ### Install the Windows Subsystem for Linux
 
 1. Search for "windows features" on your PC
 
-![](images/windows_features_search.png)
+![Windows search screenshot](images/windows_features_search.png)
 
 2. Scroll until you find the option "Windows Subsytem for Linux"
 
-![](images/windows_features_open.png)
+![Windows features screenshot](images/windows_features_open.png)
 
 3. Click the check mark, click ok, and restart.
 
 
 ### Install Ubuntu 18.04 from the Windows Store
 
-Once downloaded, open it and follow the setup instructions. 
+Once downloaded, open it and follow the setup instructions.
+
 Note: Ubuntu will start you in a directory called "/home/[username]". You can access the C: drive using the command "cd /mnt/c".
 
 ### Clone the git repository
@@ -39,3 +40,9 @@ You will also need to create a GitHub account if you do not already have one.
 ### Run the setup script
 
 Navigate to your local version of the repository in the Ubuntu 18.04 terminal. Once there, run the command "sudo source setup". This will run a script to install the Python interpreter for Ubuntu 18.04 and the python linter which helps you find errors.
+
+### Download a copy of the Bedrock server
+
+Go to [the official download page on the Minecraft werbsite,](https://www.minecraft.net/en-us/download/server/bedrock/) and download the Ubuntu Server Software for Ubuntu.
+
+![Server download image](images/server_download.png)
