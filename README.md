@@ -23,7 +23,7 @@ Built and tested on WSL: Ubuntu 18.04
 ### Install Ubuntu 18.04 from the Windows Store
 
 Once downloaded, open it and follow the setup instructions. 
-Note: Ubuntu will start you in a directory called "/home/[username]"
+Note: Ubuntu will start you in a directory called "/home/[username]". You can access the C: drive using the command "cd /mnt/c".
 
 ### Clone the git repository
 
@@ -35,4 +35,4 @@ If you don't have git, run the following commands in Ubuntu 18.04
     git clone https://github.com/zday294/Bedrock_Server_Manager.git 
     
 
-You should now have the repository available in Ubuntu 18.04
+You should now have the repository available in Ubuntu 18.04. If you're unfamiliar with git and github, read gitting_started.md
