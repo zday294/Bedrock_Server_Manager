@@ -26,7 +26,7 @@ Note: Ubuntu will start you in a directory called "/home/[username]". You can ac
 
 ### Clone the git repository
 
-If you don't have git, run the following commands in Ubuntu 18.04
+If you don't have git, run the following commands in Ubuntu 18.04.
 
     sudo apt install git
 
@@ -35,3 +35,7 @@ If you don't have git, run the following commands in Ubuntu 18.04
 You should now have the repository available in Ubuntu 18.04. If you're unfamiliar with git and github, read [the Git Getting Started Guide](./gitting_started.md)
 
 You will also need to create a GitHub account if you do not already have one.
+
+### Run the setup script
+
+Navigate to your local version of the repository in the Ubuntu 18.04 terminal. Once there, run the command "sudo source setup". This will run a script to install the Python interpreter for Ubuntu 18.04 and the python linter which helps you find errors.
