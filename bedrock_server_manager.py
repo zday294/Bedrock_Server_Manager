@@ -8,6 +8,7 @@ import sys
 import os
 import http_headers
 import datetime
+import ctypes
 
 port = 8080
 
@@ -17,21 +18,31 @@ def log(message: str):
     print(f"{date.month}-{date.day}-{date.year} {date.hour}:{date.minute}:{date.second}    {message}")
 
 
+
+
+
 def handleClient(sock: socket):
 
     workersock, clientaddr = sock.accept()
 
-    print(f"Connection from {clientaddr}")
+    log(f"Connection from {clientaddr}")
 
     page = open("home.html", 'rb')
 
-    with workersock.makefile() as sockfile:
-        pagedata = page.read()
-        sockfile.write('HTTP/1.1 200 OK\n\n')
-        sockfile.write(pagedata.decode())
+    # with workersock.makefile() as sockfile:
+    #     pagedata = page.read()
+    #     request = sockfile.readline()
+    #     log(request)
+    #     sockfile.write('HTTP/1.1 200 OK\n\n')
+    #     sockfile.write(pagedata.decode())
 
-    # sock.send(b'HTTP/1.1 200 OK\n\n')
-    # sock.sendfile(page)
+    workersock.send(b'HTTP/1.1 200 OK\n\n')
+    workersock.sendfile(file)
+
+    
+
+
+
 
 
 
