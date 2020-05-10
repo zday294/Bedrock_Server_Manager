@@ -29,15 +29,10 @@ def handleClient(sock: socket):
 
     page = open("home.html", 'rb')
 
-    # with workersock.makefile() as sockfile:
-    #     pagedata = page.read()
-    #     request = sockfile.readline()
-    #     log(request)
-    #     sockfile.write('HTTP/1.1 200 OK\n\n')
-    #     sockfile.write(pagedata.decode())
-
     workersock.send(b'HTTP/1.1 200 OK\n\n')
     workersock.sendfile(file)
+
+    # begin page handler here
 
     
 

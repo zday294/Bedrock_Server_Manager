@@ -1,4 +1,28 @@
+#include <bsd/string.h>
+#include <string.h>
+#include <stdio.h>
 
+#include <errno.h>
+
+
+
+
+#define null NULL
+#define MAX_HEADERS 10
+
+
+typedef struct http_header {
+    char *name;
+    char *value;
+} http_header_t;
+
+typedef struct http_request {
+    char *verb;
+    char *path;
+    char *version;
+    int num_headers;
+    http_header_t headers[MAX_HEADERS];
+} http_request_t;
 
 
 // Returns 1 on success,
@@ -165,7 +189,7 @@ int getFileType(char** path, char** type){
     // printf("length - periodIsAt == %d\n", (length - periodIsAt) +1);
     strlcpy(*type, (*path)+ periodIsAt, (length - periodIsAt) + 1);
 
-    //if nothing has gone wrong now, return the 1
+    //if nothing has gone wrong now, return the 0
     return 0;
 }
 
@@ -173,4 +197,62 @@ int getFileType(char** path, char** type){
 
 
 
-int getContentType(char * contentType)
+int getContentType(char* fileType, char ** contentType){
+
+    *contentType = malloc(41);
+
+    switch(fileType[1]){
+        case 'h':
+            if(strcmp(".html", fileType) == 0 || strcmp(".htm", fileType) == 0){
+                strlcpy(*contentType, "Content-Type: text/html", 25);
+                break;
+            }
+            else{
+                goto defcase;
+            }
+        case 'j':
+            if(strcmp(".jpg", fileType) == 0 || strcmp(".jpeg", fileType) == 0){
+                strlcpy(*contentType, "Content-Type: image/jpeg", 26);
+                break;
+            }
+            else{
+                goto defcase;
+            }
+        case 'c':
+            if(strcmp(".css", fileType) == 0){
+                strlcpy(*contentType, "Content-Type: text/css", 24);
+                break;
+            }
+            else{
+                goto defcase;
+            }
+        case 't':
+            if(strcmp(".txt", fileType) == 0){
+                strlcpy(*contentType, "Content-Type: text/plain", 26);
+                break;
+            }
+            else{
+                goto defcase;
+            }
+        case 'g':
+            if(strcmp(".gif", fileType) == 0){
+                strlcpy(*contentType, "Content-Type: image/gif", 25);
+                break;
+            }
+            else{
+                goto defcase;
+            }
+        case 'p':
+            if(strcmp(".png", fileType) == 0){
+                strlcpy(*contentType, "Content-Type: image/png", 25);
+                break;
+            }
+            else{
+                goto defcase;
+            }
+    defcase:
+        default:
+            strlcpy(*contentType, "Content-Type: application/octet-stream", 40);
+            break; 
+    }
+}
