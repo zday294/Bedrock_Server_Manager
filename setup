@@ -6,7 +6,7 @@ apt update -y
 
 apt upgrade -y
 
-sudo apt-get install -y libbsd-dev
+apt-get install -y libbsd-dev
 
 apt install python3 -y
 
@@ -17,3 +17,5 @@ apt-get install pylint
 apt install unzip
 
 chmod +x bedrock
+
+apt install gcc

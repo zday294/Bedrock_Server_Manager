@@ -2,7 +2,7 @@
 
 This project is inteded to design a program that will allow multiple Minecraft Bedrock servers to run on a single computer and select which server to access at runtime.
 
-Built and tested on WSL: Ubuntu 18.04
+Built and tested on WSL: Ubuntu 18.04 and 
 
 ## To begin working
 
@@ -38,11 +38,16 @@ You will also need to create a GitHub account if you do not already have one.
 
 ### Run the setup script
 
-Navigate to your local version of the repository in the Ubuntu 18.04 terminal. Once there, run the command "sudo source setup". This will run a script to install the Python interpreter for Ubuntu 18.04 and the python linter which helps you find errors.
+Navigate to your local version of the repository in the Ubuntu 18.04 terminal. Once there, run the following commands.
+
+    sudo chmod +x setup
+    sudo ./setup
+
+This will run a script to install the Python interpreter for Ubuntu 18.04 and the python linter which helps you find errors.
 
 ### Download a copy of the Bedrock server
 
-Go to [the official download page on the Minecraft werbsite,](https://www.minecraft.net/en-us/download/server/bedrock/) and download the Ubuntu Server Software for Ubuntu.
+Go to [the official download page on the Minecraft website,](https://www.minecraft.net/en-us/download/server/bedrock/) and download the Ubuntu Server Software for Ubuntu.
 
 ![Server download image](images/server_download.png)
 
