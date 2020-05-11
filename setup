@@ -12,10 +12,10 @@ apt install python3 -y
 
 apt install python-pip -y
 
-apt-get install pylint
+apt-get install pylint -y
 
-apt install unzip
+apt install unzip -y
 
 chmod +x bedrock
 
-apt install gcc
+apt install gcc -y
