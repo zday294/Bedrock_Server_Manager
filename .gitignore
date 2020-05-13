@@ -1,6 +1,11 @@
 .vscode
 
 
+#c leftovers
+httplib.o
+httplib.so
+
+
 #server details
 behavior_packs
 definitions

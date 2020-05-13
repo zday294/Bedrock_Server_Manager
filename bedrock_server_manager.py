@@ -6,18 +6,18 @@ import socket
 import io
 import sys
 import os
-import http_headers
+import http_classes
 import datetime
 import ctypes
 
+
 port = 8080
 
+httplib = ctypes.cdll.LoadLibrary("./httplib.so")
 
 def log(message: str):
     date = datetime.datetime.now()
     print(f"{date.month}-{date.day}-{date.year} {date.hour}:{date.minute}:{date.second}    {message}")
-
-
 
 
 
@@ -26,13 +26,31 @@ def handleClient(sock: socket):
     workersock, clientaddr = sock.accept()
 
     log(f"Connection from {clientaddr}")
+    initial = workersock.recv(1024)
+    log(f"Message from {clientaddr}: {initial.decode()}")
 
     page = open("home.html", 'rb')
+    #page = file.read()
 
-    workersock.send(b'HTTP/1.1 200 OK\n\n')
-    workersock.sendfile(file)
+    #print(page)
+
+    workersock.send(str(http_classes.ok).encode())
+    workersock.send(str(http_classes.htmltype).encode())
+    workersock.send(b'\n')
+    workersock.sendfile(page)
+    log("Sent file: homepage.html")
+
+
 
     # begin page handler here
+    log(f"Working with client {clientaddr}")
+    while True:
+        request = workersock.recv(1024).decode()
+        log(f"Received mesage '{request}' from client {clientaddr}")
+        
+
+
+
 
     
 

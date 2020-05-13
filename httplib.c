@@ -1,28 +1,13 @@
+#include <stdlib.h>
+
 #include <bsd/string.h>
 #include <string.h>
 #include <stdio.h>
 
 #include <errno.h>
 
+#include "httplib.h"
 
-
-
-#define null NULL
-#define MAX_HEADERS 10
-
-
-typedef struct http_header {
-    char *name;
-    char *value;
-} http_header_t;
-
-typedef struct http_request {
-    char *verb;
-    char *path;
-    char *version;
-    int num_headers;
-    http_header_t headers[MAX_HEADERS];
-} http_request_t;
 
 
 // Returns 1 on success,
@@ -50,7 +35,7 @@ int parseHttp(FILE *in, http_request_t **request)
     size_t linelen = 0;
     int er;
     if( (er = getline(&line, &linelen, in)) <= 0){    //theoretically, doing this should allow it to read a line of any size?
-         blog("error reading in data. errno = %d, er = %d\n", errno, er);
+         //blog("error reading in data. errno = %d, er = %d\n", errno, er);
          return -2;
     }   
 
@@ -129,6 +114,10 @@ int parseHttp(FILE *in, http_request_t **request)
         if(*headline == '\n' || *headline == '\r'){
             free(headline);
             break;
+        }
+        else{
+            // we need to actually save http headers now
+            // http_header_t
         }
         free(headline);
     }
@@ -255,4 +244,6 @@ int getContentType(char* fileType, char ** contentType){
             strlcpy(*contentType, "Content-Type: application/octet-stream", 40);
             break; 
     }
+
+    return 0;
 }

@@ -19,3 +19,7 @@ apt install unzip -y
 chmod +x bedrock
 
 apt install gcc -y
+
+apt install make -y
+
+make sharedlib
