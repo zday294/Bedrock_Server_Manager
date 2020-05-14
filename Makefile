@@ -1,7 +1,7 @@
 
 sharedlib: httplib.o
-	gcc -shared -ohttplib.so httplib.o -lbsd
+	gcc -g -shared -ohttplib.so httplib.o -lbsd
 
 
 object: httplib.c httplib.h
-	gcc -c -fPIC -ohttplib.o httplib.c -lbsd
+	gcc -g -c -fPIC -ohttplib.o httplib.c -lbsd

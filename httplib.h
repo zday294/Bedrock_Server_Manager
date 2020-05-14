@@ -29,6 +29,9 @@ typedef struct http_request {
 } http_request_t;
 
 
+
+http_request_t* parseHttpWrap(char* requestFile);
+
 int parseHttp(FILE *in, http_request_t **request);
 
 int getFileType(char** path, char** type);

@@ -10,6 +10,21 @@
 
 
 
+
+
+http_request_t* parseHttpWrap(char* requestFile){
+
+    FILE *input = fopen(requestFile, "r");
+    http_request_t* request;
+    
+    parseHttp(input, &request);
+
+    return request;
+}
+
+
+
+
 // Returns 1 on success,
 // -1 on invalid HTTP request,
 // -2 on I/O error,g_settings
@@ -117,7 +132,19 @@ int parseHttp(FILE *in, http_request_t **request)
         }
         else{
             // we need to actually save http headers now
-            // http_header_t
+            
+            req->headers[i].name = malloc(20);
+            req->headers[i].value = malloc(50);
+
+
+            char *save;
+
+            char* tag = strtok_r(headline, ": ", &save);
+            char* val = strtok_r(null, ": ", &save);
+
+            strlcpy(req->headers[i].name, tag, strlen(tag));
+            strlcpy(req->headers[i].value, val, strlen(val)); 
+
         }
         free(headline);
     }

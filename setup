@@ -18,8 +18,10 @@ apt install unzip -y
 
 chmod +x bedrock
 
-apt install gcc -y
+# apt install gcc -y
 
-apt install make -y
+# apt install make -y
 
-make sharedlib
+# make sharedlib
+
+# echo NOTE: If you plan to work in c, you may want to install valgrind ("sudo apt install valgrind")

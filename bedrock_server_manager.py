@@ -8,17 +8,28 @@ import sys
 import os
 import http_classes
 import datetime
-import ctypes
+# import ctypes
 
 
 port = 8080
 
-httplib = ctypes.cdll.LoadLibrary("./httplib.so")
+# httplib = ctypes.cdll.LoadLibrary("./httplib.so")
 
-def log(message: str):
+def log(message: str): 
     date = datetime.datetime.now()
     print(f"{date.month}-{date.day}-{date.year} {date.hour}:{date.minute}:{date.second}    {message}")
 
+
+def parseHttp(sock, client) -> http_classes.myRequest: 
+    requestLine = sock.recv(1024).decode()
+    log(f"Received mesage '{requestLine}' from client {client}")
+
+
+    verbage, headers = requestLine.split("\n")
+    print(verbage)
+    print(headers)
+
+    # request = http_classes.myRequest()
 
 
 def handleClient(sock: socket):
@@ -29,15 +40,17 @@ def handleClient(sock: socket):
     initial = workersock.recv(1024)
     log(f"Message from {clientaddr}: {initial.decode()}")
 
-    page = open("home.html", 'rb')
-    #page = file.read()
+    file = open("home.html", 'r')
+    page = file.read()
 
     #print(page)
+    
+    workersock.send(str(http_classes.myResponse("OK", 200, "HTTP/1.1", page)).encode())
 
-    workersock.send(str(http_classes.ok).encode())
-    workersock.send(str(http_classes.htmltype).encode())
-    workersock.send(b'\n')
-    workersock.sendfile(page)
+    # workersock.send(str(http_classes.ok).encode())
+    # workersock.send(str(http_classes.htmltype).encode())
+    # workersock.send(b'\n')
+    # workersock.sendfile(page)
     log("Sent file: homepage.html")
 
 
@@ -45,18 +58,11 @@ def handleClient(sock: socket):
     # begin page handler here
     log(f"Working with client {clientaddr}")
     while True:
-        request = workersock.recv(1024).decode()
-        log(f"Received mesage '{request}' from client {clientaddr}")
-        
+        req = parseHttp(workersock, clientaddr)
 
 
 
-
-    
-
-
-
-
+ 
 
 
 

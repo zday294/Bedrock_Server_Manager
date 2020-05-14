@@ -4,6 +4,7 @@
 #c leftovers
 httplib.o
 httplib.so
+quickstream.txt
 
 
 #server details
